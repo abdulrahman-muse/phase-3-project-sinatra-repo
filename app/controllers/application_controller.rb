@@ -6,11 +6,6 @@ class ApplicationController < Sinatra::Base
     shades.to_json
   end
 
-  get "/colors" do
-    colors = Color.all
-    colors.to_json(include: :shades)
-  end
-
   delete '/shades/:id' do
     shade = Shade.find(params[:id])
     shade.destroy
